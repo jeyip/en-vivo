@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import UsersList from "./UsersList";
+import UserList from "./UserList";
 import MessageList from "./MessageList";
 import Input from "./Input";
 import { WebsocketContext } from "../WebsocketContext";
@@ -51,7 +51,7 @@ const ChatWindow = () => {
 
   return (
     <div className={styles.chatWindow}>
-      <UsersList userList={connectedUsers} />
+      <UserList userList={connectedUsers} />
       <MessageList messages={messages} />
       <Input
         addMessage={e => addMessage(e, socket, "", updateMessages, messages)}
