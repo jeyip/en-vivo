@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Video from "react-youtube";
+import queryString from "query-string";
 import Searchbar from "./Searchbar";
 import styles from "./YoutubePlayer.module.css";
 import { WebsocketContext } from "../WebsocketContext";
@@ -9,14 +10,22 @@ const opts = {
   width: "100%"
 };
 
+const handleSearch = (e, setUrl) => {
+  e.key === "Enter" && setUrl(e.target.value);
+};
+
 const YoutubePlayer = () => {
   const { socket } = useContext(WebsocketContext);
+  const [url, setUrl] = useState("");
+  const queries = url.split("?")[1];
+  const videoId = queryString.parse(queries).v || "2g811Eo7K8U";
+
   return (
     <div className={styles.YoutubePlayer}>
-      <Searchbar handleSearch={() => {}} />
+      <Searchbar handleSearch={e => handleSearch(e, setUrl)} />
       <Video
         id="video"
-        videoId="2g811Eo7K8U"
+        videoId={videoId}
         opts={opts}
         onReady={e => {
           socket.on("PLAY_VIDEO", () => e.target.playVideo());
