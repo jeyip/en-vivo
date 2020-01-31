@@ -17,6 +17,14 @@ io.on("connection", socket => {
     socket.broadcast.emit("ADD_MESSAGE", message);
   });
 
+  socket.on("SEARCHTERM_BROADCAST", searchTerm => {
+    socket.broadcast.emit("SEARCHTERM", searchTerm);
+  });
+
+  socket.on("SEARCH_BROADCAST", url => {
+    socket.broadcast.emit("SEARCH", url);
+  });
+
   socket.on("newUser", username => {
     connectedUsers = [...connectedUsers, { [socket.id]: username }];
     socket.broadcast.emit("UPDATE_USERS", connectedUsers);
