@@ -10,22 +10,43 @@ const opts = {
   width: "100%"
 };
 
-const handleSearch = (e, setUrl) => {
-  e.key === "Enter" && setUrl(e.target.value);
+const useVideoID = (videoID = "2g811Eo7K8U") => {
+  const [url, setUrl] = useState("");
+  const queries = url.split("?")[1];
+  const newVideoID = queryString.parse(queries).v || videoID;
+  return { setUrl, videoID: newVideoID };
+};
+
+const handleSearch = (e, setUrl, socket) => {
+  if (e.key === "Enter") {
+    setUrl(e.target.value);
+    socket.emit("SEARCH_BROADCAST", e.target.value);
+  }
+};
+
+const handleOnChange = (e, updateSearchTerm, socket) => {
+  updateSearchTerm(e.target.value);
+  socket.emit("SEARCHTERM_BROADCAST", e.target.value);
 };
 
 const YoutubePlayer = () => {
   const { socket } = useContext(WebsocketContext);
-  const [url, setUrl] = useState("");
-  const queries = url.split("?")[1];
-  const videoId = queryString.parse(queries).v || "2g811Eo7K8U";
+  const [searchTerm, updateSearchTerm] = useState("");
+  const { setUrl, videoID } = useVideoID();
+
+  socket.on("SEARCH", url => setUrl(url));
+  socket.on("SEARCHTERM", searchTerm => updateSearchTerm(searchTerm));
 
   return (
     <div className={styles.YoutubePlayer}>
-      <Searchbar handleSearch={e => handleSearch(e, setUrl)} />
+      <Searchbar
+        handleOnChange={e => handleOnChange(e, updateSearchTerm, socket)}
+        handleSearch={e => handleSearch(e, setUrl, updateSearchTerm, socket)}
+        searchTerm={searchTerm}
+      />
       <Video
         id="video"
-        videoId={videoId}
+        videoId={videoID}
         opts={opts}
         onReady={e => {
           socket.on("PLAY_VIDEO", () => e.target.playVideo());
