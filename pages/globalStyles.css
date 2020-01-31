@@ -1,0 +1,146 @@
+@font-face {
+  font-family: LatoHairline;
+  src: url("../assets/fonts/Lato-Hairline.ttf");
+}
+
+html,
+body,
+#content,
+#app {
+  height: 100%;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: LatoHairline, sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+input {
+  border: none;
+  border: 1px solid #e6e6e6;
+  display: block;
+  font-family: LatoHairline;
+  font-size: 20px;
+  padding: 10px 10px;
+  outline: none;
+  -webkit-transition: border-color 0.5s;
+  transition: border-color 0.5s;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+.loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("../assets/images/Preloader_3.gif") 50% 50% no-repeat #fff;
+  -webkit-transition: 0.9s;
+  transition: 0.9s;
+}
+
+#app {
+  display: flex;
+  flex-flow: row;
+  flex: 1;
+  height: 100vh;
+}
+
+#aside {
+  display: flex;
+  flex-flow: column;
+  flex: 1.25;
+}
+
+/*CHAT*/
+.chatMessages,
+.username {
+  padding: 10px;
+}
+
+.chatMessages {
+  background-color: #fff;
+  border-radius: 3px;
+  margin-right: 20px;
+  text-align: left;
+}
+
+.self {
+  flex-direction: row-reverse;
+}
+
+.self .chatMessages {
+  background-color: #cfd8dc;
+  margin: 0px 20px;
+}
+
+.self .username {
+  display: none;
+}
+
+.requiredField {
+  border-color: #fe2020;
+}
+
+/*SEARCH BAR*/
+iframe {
+  flex: 7;
+}
+
+/*LOGIN*/
+#loginContainer {
+  border-top: 5px solid #45ada8;
+  padding-top: 25px;
+}
+
+#loginContainer input {
+  font-family: LatoHairline;
+  font-size: 20px;
+  margin: 10px auto;
+  padding: 15px 10px 15px 70px;
+  width: 225px;
+}
+
+#usernameInput {
+  background: #fff url("../assets/images/user.png") no-repeat 5%;
+  background-size: 40px;
+}
+
+#chatroomIDInput {
+  background: #fff url("../assets/images/chat.png") no-repeat 5%;
+  background-size: 40px;
+}
+
+#loginContainer button {
+  background-color: #45ada8;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  font-family: LatoHairline;
+  font-size: 20px;
+  height: 56px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  width: 307px;
+}
+
+#loginContainer button:hover {
+  background-color: #7fccc8;
+}
+
+#loginContainer img {
+  max-width: 250px;
+  margin-bottom: 20px;
+}
