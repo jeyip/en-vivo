@@ -1,0 +1,5 @@
+.YoutubePlayer {
+  display: flex;
+  flex-flow: column;
+  flex: 2;
+}
