@@ -41,7 +41,7 @@ const YoutubePlayer = () => {
     <div className={styles.YoutubePlayer}>
       <Searchbar
         handleOnChange={e => handleOnChange(e, updateSearchTerm, socket)}
-        handleSearch={e => handleSearch(e, setUrl, updateSearchTerm, socket)}
+        handleSearch={e => handleSearch(e, setUrl, socket)}
         searchTerm={searchTerm}
       />
       <Video
