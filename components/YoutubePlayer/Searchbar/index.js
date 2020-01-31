@@ -8,7 +8,7 @@ const Searchbar = ({ handleSearch }) => {
       className={styles.searchbar}
       type="text"
       onKeyUp={handleSearch}
-      placeholder="Enter a location..."
+      placeholder="Enter a url..."
     ></input>
   );
 };
