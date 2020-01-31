@@ -1,0 +1,8 @@
+.chatWindow {
+  border: 1px solid #e6e6e6;
+  border-left: none;
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  text-align: center;
+}

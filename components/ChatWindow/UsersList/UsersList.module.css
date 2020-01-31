@@ -1,0 +1,19 @@
+.list {
+  background-color: #404040;
+  border-bottom: 1px solid #e6e6e6;
+  color: #fff;
+  padding: 20px 0px;
+}
+
+.list span:nth-last-child(1) span {
+  visibility: hidden;
+}
+
+.list span:nth-last-child(2) span {
+  visibility: hidden;
+}
+
+.list span:nth-last-child(2) span::before {
+  visibility: visible;
+  content: "  and";
+}

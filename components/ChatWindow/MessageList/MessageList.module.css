@@ -1,0 +1,27 @@
+.messageList {
+  list-style-type: none;
+  flex: 1;
+  overflow: auto;
+}
+
+.messageList li {
+  display: flex;
+  display: -webkit-flex;
+  margin: 15px 0px;
+}
+
+.chatMessages {
+  background-color: #fff;
+  border-radius: 3px;
+  margin-right: 20px;
+  text-align: left;
+}
+
+.self {
+  flex-direction: row-reverse;
+}
+
+.self .chatMessages {
+  background-color: #cfd8dc;
+  margin: 0px 20px;
+}
