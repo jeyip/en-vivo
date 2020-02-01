@@ -19,6 +19,12 @@ We'll need [Node.js](https://nodejs.org/en/) to be installed to run the project 
 
 3. Then run `npm dev` which should start both the server and the React client.
 
+4. Visit http://localhost:3000/ in any web browser.
+
+5. Sign in with any username.
+
+6. Explore!
+
 ## Technical Notes
 
 - The node server is running with [nodemon](https://nodemon.io/) on port 5000, which will automatically restart for you when you modify and save a file.
