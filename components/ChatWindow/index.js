@@ -1,32 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import UserList from "./UserList";
 import MessageList from "./MessageList";
 import Input from "./Input";
 import { WebsocketContext } from "../WebsocketContext";
 import styles from "./ChatWindow.module.css";
 
-//TODO: Fix username
 const addMessage = (event, socket, username = "", updateMessages, messages) => {
-  const inputNode = event.target;
   const newMessage = {
     username: username,
     text: event.target.value
   };
 
-  // TODO: refactor
   if (event.key === "Enter") {
-    if (!newMessage.text) {
-      event.target.className = "requiredField";
-      event.target.placeholder = "There was no text to send!";
-      setTimeout(() => {
-        inputNode.className = "";
-        inputNode.placeholder = "Enter a message...";
-      }, 2000);
-    } else {
-      if (event.target.className === "requiredField") {
-        event.target.className = "";
-        event.target.placeholder = "Enter a message...";
-      }
+    if (newMessage.text) {
       socket.emit("ADD_MESSAGE_BROADCAST", newMessage);
 
       newMessage.self = true;
@@ -40,6 +26,12 @@ const ChatWindow = () => {
   const { socket } = useContext(WebsocketContext);
   const [messages, updateMessages] = useState([]);
   const [connectedUsers, updateConnectedUsers] = useState([]);
+
+  useEffect(() => {
+    // Automatically scrolls to newest message in list
+    const messageListNode = document.getElementById("messageList");
+    messageListNode.scrollTop = messageListNode.scrollHeight;
+  }, [messages]);
 
   socket.on("ADD_MESSAGE", newMessage =>
     updateMessages([...messages, newMessage])

@@ -4,7 +4,7 @@ import styles from "./MessageList.module.css";
 
 const MessageList = ({ messages = [] }) => {
   return (
-    <ul className={styles.messageList}>
+    <ul id="messageList" className={styles.messageList}>
       {messages.map((message, index) => {
         if (message.self) {
           return (
