@@ -1,11 +1,16 @@
 import React, { useContext, useState, useEffect } from "react";
-import UserList from "./UserList";
 import MessageList from "./MessageList";
 import Input from "./Input";
 import { WebsocketContext } from "../WebsocketContext";
 import styles from "./ChatWindow.module.css";
 
-const addMessage = (event, socket, username = "", updateMessages, messages) => {
+const onSubmit = (
+  event,
+  socket,
+  username = "Anonymous",
+  updateMessages,
+  messages
+) => {
   const newMessage = {
     username: username,
     text: event.target.value
@@ -25,9 +30,12 @@ const addMessage = (event, socket, username = "", updateMessages, messages) => {
 const ChatWindow = () => {
   const { socket } = useContext(WebsocketContext);
   const [messages, updateMessages] = useState([]);
-  const [connectedUsers, updateConnectedUsers] = useState([]);
+  const [users, updateUsers] = useState([]);
+  let username;
 
   useEffect(() => {
+    username = localStorage.getItem("username");
+
     // Automatically scrolls to newest message in list
     const messageListNode = document.getElementById("messageList");
     messageListNode.scrollTop = messageListNode.scrollHeight;
@@ -37,23 +45,19 @@ const ChatWindow = () => {
     updateMessages([...messages, newMessage])
   );
 
-  socket.on("UPDATE_USERS", newConnectedUsers =>
-    updateConnectedUsers([...newConnectedUsers])
-  );
+  socket.on("UPDATE_USERS", newUsers => {
+    updateUsers([...newUsers]);
+  });
 
   return (
     <div className={styles.chatWindow}>
-      <UserList userList={connectedUsers} />
+      <div className={styles.header}>En Vivo Chat</div>
       <MessageList messages={messages} />
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
+      <div className={styles.inputContainer}>
         <Input
-          addMessage={e => addMessage(e, socket, "", updateMessages, messages)}
+          onSubmit={e =>
+            onSubmit(e, socket, username, updateMessages, messages)
+          }
         />
       </div>
     </div>

@@ -3,7 +3,7 @@ import cx from "classnames";
 import PropTypes from "prop-types";
 import styles from "./Input.module.css";
 
-const ChatInput = ({ addMessage }) => {
+const ChatInput = ({ onSubmit }) => {
   const [isFocused, setFocus] = useState(false);
   const inputRef = useRef(null);
   useEffect(() => {
@@ -15,7 +15,7 @@ const ChatInput = ({ addMessage }) => {
       className={cx(styles.input, { [styles.focus]: isFocused })}
       onBlur={() => setFocus(false)}
       onFocus={() => setFocus(true)}
-      onKeyUp={addMessage}
+      onKeyUp={onSubmit}
       placeholder="Enter a message..."
       ref={inputRef}
       type="text"
@@ -24,7 +24,7 @@ const ChatInput = ({ addMessage }) => {
 };
 
 ChatInput.propTypes = {
-  addMessage: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default ChatInput;
