@@ -1,13 +1,9 @@
-const express = require("express");
-const app = express();
+const app = require("express")();
+var server = require("http").Server(app);
+const io = require("socket.io")(server);
 
-const io = require("socket.io")(
-  app.listen(5000, () => {
-    console.log("listening on port 5000");
-  })
-);
+server.listen(5000);
 
-// TODO: Figure out how to have multiple channels with connectedUsers for each channel
 let connectedUsers = [];
 
 io.on("connection", socket => {
@@ -25,9 +21,9 @@ io.on("connection", socket => {
     socket.broadcast.emit("SEARCH", url);
   });
 
-  socket.on("newUser", username => {
+  socket.on("NEW_USER_BROADCAST", username => {
     connectedUsers = [...connectedUsers, { [socket.id]: username }];
-    socket.broadcast.emit("UPDATE_USERS", connectedUsers);
+    socket.emit("UPDATE_USERS", connectedUsers);
   });
 
   socket.on("PLAY_VIDEO_BROADCAST", () => {
@@ -39,9 +35,8 @@ io.on("connection", socket => {
   });
 
   socket.on("disconnect", () => {
-    console.log("user disconnected");
     connectedUsers = connectedUsers.filter(
-      user => user[socket.id] !== socket.id
+      user => user[socket.id] === socket.id
     );
     socket.broadcast.emit("UPDATE_USERS", connectedUsers);
   });
