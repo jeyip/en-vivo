@@ -10,12 +10,12 @@ const addMessage = (event, socket, username = "", updateMessages, messages) => {
   const inputNode = event.target;
   const newMessage = {
     username: username,
-    messageText: event.target.value
+    text: event.target.value
   };
 
   // TODO: refactor
   if (event.key === "Enter") {
-    if (!newMessage.messageText) {
+    if (!newMessage.text) {
       event.target.className = "requiredField";
       event.target.placeholder = "There was no text to send!";
       setTimeout(() => {
@@ -53,9 +53,17 @@ const ChatWindow = () => {
     <div className={styles.chatWindow}>
       <UserList userList={connectedUsers} />
       <MessageList messages={messages} />
-      <Input
-        addMessage={e => addMessage(e, socket, "", updateMessages, messages)}
-      />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Input
+          addMessage={e => addMessage(e, socket, "", updateMessages, messages)}
+        />
+      </div>
     </div>
   );
 };
