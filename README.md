@@ -23,7 +23,7 @@ We'll need [Node.js](https://nodejs.org/en/) to be installed to run the project 
 
 2. In the repo root directory, run `npm install` to gather all dependencies.
 
-3. Then run `npm dev` which should start both the server and the React client.
+3. Then run `npm run dev` which should start both the server and the React client.
 
 4. Visit http://localhost:3000/ in any web browser.
 
