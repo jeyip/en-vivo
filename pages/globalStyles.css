@@ -11,22 +11,10 @@ body,
 }
 
 body {
-  background-color: #fafafa;
+  background-color: #fff;
   font-family: LatoHairline, sans-serif;
   margin: 0;
   text-align: center;
-}
-
-input {
-  border: none;
-  border: 1px solid #e6e6e6;
-  display: block;
-  font-family: LatoHairline;
-  font-size: 20px;
-  padding: 10px 10px;
-  outline: none;
-  -webkit-transition: border-color 0.5s;
-  transition: border-color 0.5s;
 }
 
 h1,
@@ -36,18 +24,6 @@ p {
 
 ul {
   padding: 0;
-}
-
-.loader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: url("../assets/images/Preloader_3.gif") 50% 50% no-repeat #fff;
-  -webkit-transition: 0.9s;
-  transition: 0.9s;
 }
 
 #app {
@@ -64,24 +40,28 @@ ul {
 }
 
 /*CHAT*/
-.chatMessages,
+.chatMessage,
 .username {
   padding: 10px;
 }
 
-.chatMessages {
+.chatMessage {
   background-color: #f1f0f0;
-  border-radius: 3px;
+  border-radius: 10px;
+  font-size: 18px;
   font-weight: bold;
   margin-right: 20px;
   text-align: left;
+  white-space: normal;
+  max-width: 300px;
+  word-break: break-word;
 }
 
 .self {
   flex-direction: row-reverse;
 }
 
-.self .chatMessages {
+.self .chatMessage {
   background-color: #45ada8;
   color: #fff;
   font-weight: bold;

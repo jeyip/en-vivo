@@ -10,14 +10,14 @@ const MessageList = ({ messages = [] }) => {
           return (
             <li className="self" key={`${index}-self-${message.text}`}>
               <p className="username">{message.username}:</p>
-              <p className="chatMessages">{message.text}</p>
+              <p className="chatMessage">{message.text}</p>
             </li>
           );
         } else {
           return (
             <li key={`${index}-${message.username}-${message.text}`}>
               <p className="username">{message.username}:</p>
-              <p className="chatMessages">{message.text}</p>
+              <p className="chatMessage">{message.text}</p>
             </li>
           );
         }
