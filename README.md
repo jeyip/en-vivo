@@ -6,7 +6,7 @@ Not just another chat app
 
 ## Getting Set Up
 
-We'll need [Node.js](https://nodejs.org/en/) to be installed to run the project locally.
+We'll need [Node.js](https://nodejs.org/en/) to be installed to run the project locally. I develop with version 10.16.3.
 
 1. Start by cloning this repository.
 
@@ -17,6 +17,6 @@ We'll need [Node.js](https://nodejs.org/en/) to be installed to run the project 
 ## Technical Notes
 
 - The node server is running with [nodemon](https://nodemon.io/) on port 5000, which will automatically restart for you when you modify and save a file.
-- The frontend is using the [Next.js framework](https://nextjs.org/docs/getting-started). Any changes in the client should hot reloaded on port 3000.
+- The frontend is using the [Next.js framework](https://nextjs.org/docs/getting-started). Any changes in the client should be hot reloaded on port 3000.
 
 Thanks for taking the time to check out this project! 🙏
