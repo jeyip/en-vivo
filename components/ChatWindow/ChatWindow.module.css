@@ -6,3 +6,19 @@
   flex-flow: column;
   text-align: center;
 }
+
+.header {
+  align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  flex: 0 0 70px;
+  font-size: 25px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

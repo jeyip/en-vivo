@@ -2,13 +2,8 @@ import React, { useContext, useState } from "react";
 import Video from "react-youtube";
 import queryString from "query-string";
 import Searchbar from "./Searchbar";
-import styles from "./YoutubePlayer.module.css";
 import { WebsocketContext } from "../WebsocketContext";
-
-const opts = {
-  height: "700",
-  width: "100%"
-};
+import styles from "./YoutubePlayer.module.css";
 
 const useVideoID = (videoID = "2g811Eo7K8U") => {
   const [url, setUrl] = useState("");
@@ -48,8 +43,9 @@ const YoutubePlayer = () => {
       </div>
       <Video
         id="video"
+        containerClassName={styles.videoContainer}
         videoId={videoID}
-        opts={opts}
+        opts={{ height: "100%", width: "100%" }}
         onReady={e => {
           socket.on("PLAY_VIDEO", () => e.target.playVideo());
           socket.on("PAUSE_VIDEO", () => e.target.pauseVideo());
