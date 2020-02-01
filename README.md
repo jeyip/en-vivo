@@ -31,9 +31,9 @@ We'll need [Node.js](https://nodejs.org/en/) to be installed to run the project 
 
 6. To see the realtime nature of the app, open up a second web browser at http://localhost:3000/ and sign in with a different username.
 
-7. Copy and paste the URL of any youtube video and paste it into the searchbar.
+7. Copy the URL of any youtube video and paste it into the searchbar.
 
-8. Press play on either browser.
+8. Press play in either browser.
 
 9. Explore and have fun!
 
