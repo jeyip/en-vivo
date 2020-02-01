@@ -2,13 +2,14 @@
 En Vivo is a chat application where all users have realtime control of a shared video player.
 
 ## Motivation
+#### Background
+
 > "What might make people really bond over chat, the way they might in real life?"
 
-#### Background
-Bonding over chat can be difficult for a number of reasons. [Positive non-verbal cues are important when connecting with others](http://faculty.sites.uci.edu/crhlab/files/2011/03/2015-Campos-Schoebi-Gonzaga-Gable-Keltner-2015.pdf), and there are a limited number of ways to convey them over text (emojis, GIFs, etc.). It's hard to find time to actively engage in, read, and write short and long form messages. It's difficult to know what is acceptable to discuss, especially with strangers. Etc.
+Bonding over chat can be difficult for a number of reasons. [Positive non-verbal cues are important when connecting with others](http://faculty.sites.uci.edu/crhlab/files/2011/03/2015-Campos-Schoebi-Gonzaga-Gable-Keltner-2015.pdf), and there are a limited number of ways to convey them over text (emojis, GIFs, etc.). It's hard to find time to actively engage in, read, and write short and long form messages. It's difficult to know what is acceptable to discuss, especially with strangers. Etc. En Vivo addresses a different and distinct challenge.
 
 #### Problem
-En Vivo explores the problem of how complicated it can be to facilitate create experiences through text. Research shows that ["...people who share experiences with another person rate those experiences as more pleasant...than those who undergo the experience on their own."](https://www.eurekalert.org/pub_releases/2014-10/afps-smb100714.php) In the same way that people visit the art museum or go to movies together, what if we could tap into an activity that plenty of folks already do every day? Let's watch Youtube videos together!
+**It's hard to create and facilitate shared experiences through text.** Research shows that ["...people who share experiences with another person rate those experiences as more pleasant...than those who undergo the experience on their own."](https://www.eurekalert.org/pub_releases/2014-10/afps-smb100714.php) In the same way that people visit the art museum or go to movies together, what if we could tap into an activity that plenty of people already do every day? Let's watch Youtube videos together!
 
 
 ## Getting Set Up
