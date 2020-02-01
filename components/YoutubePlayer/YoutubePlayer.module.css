@@ -3,3 +3,10 @@
   flex-flow: column;
   flex: 2;
 }
+
+.searchbarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 70px;
+}

@@ -39,14 +39,7 @@ const YoutubePlayer = () => {
 
   return (
     <div className={styles.YoutubePlayer}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "10px"
-        }}
-      >
+      <div className={styles.searchbarContainer}>
         <Searchbar
           handleOnChange={e => handleOnChange(e, updateSearchTerm, socket)}
           handleSearch={e => handleSearch(e, setUrl, socket)}
