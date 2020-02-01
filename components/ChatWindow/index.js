@@ -16,14 +16,11 @@ const onSubmit = (
     text: event.target.value
   };
 
-  if (event.key === "Enter") {
-    if (newMessage.text) {
-      socket.emit("ADD_MESSAGE_BROADCAST", newMessage);
-
-      newMessage.self = true;
-      updateMessages([...messages, newMessage]);
-      event.target.value = "";
-    }
+  if (event.key === "Enter" && newMessage.text) {
+    socket.emit("ADD_MESSAGE_BROADCAST", newMessage);
+    newMessage.self = true;
+    updateMessages([...messages, newMessage]);
+    event.target.value = "";
   }
 };
 
