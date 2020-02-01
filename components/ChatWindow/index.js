@@ -30,7 +30,6 @@ const onSubmit = (
 const ChatWindow = () => {
   const { socket } = useContext(WebsocketContext);
   const [messages, updateMessages] = useState([]);
-  const [users, updateUsers] = useState([]);
   let username;
 
   useEffect(() => {
@@ -45,19 +44,15 @@ const ChatWindow = () => {
     updateMessages([...messages, newMessage])
   );
 
-  socket.on("UPDATE_USERS", newUsers => {
-    updateUsers([...newUsers]);
-  });
-
   return (
     <div className={styles.chatWindow}>
       <div className={styles.header}>En Vivo Chat</div>
       <MessageList messages={messages} />
       <div className={styles.inputContainer}>
         <Input
-          onSubmit={e =>
-            onSubmit(e, socket, username, updateMessages, messages)
-          }
+          onSubmit={e => {
+            onSubmit(e, socket, username, updateMessages, messages);
+          }}
         />
       </div>
     </div>

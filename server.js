@@ -4,7 +4,7 @@ const io = require("socket.io")(server);
 
 server.listen(5000);
 
-let connectedUsers = [];
+// let connectedUsers = [];
 
 io.on("connection", socket => {
   console.log("user connected");
@@ -21,10 +21,10 @@ io.on("connection", socket => {
     socket.broadcast.emit("SEARCH", url);
   });
 
-  socket.on("NEW_USER_BROADCAST", username => {
-    connectedUsers = [...connectedUsers, { [socket.id]: username }];
-    socket.emit("UPDATE_USERS", connectedUsers);
-  });
+  // socket.on("NEW_USER_BROADCAST", username => {
+  //   connectedUsers = [...connectedUsers, { [socket.id]: username }];
+  //   socket.emit("UPDATE_USERS", connectedUsers);
+  // });
 
   socket.on("PLAY_VIDEO_BROADCAST", () => {
     socket.broadcast.emit("PLAY_VIDEO");
@@ -35,9 +35,9 @@ io.on("connection", socket => {
   });
 
   socket.on("disconnect", () => {
-    connectedUsers = connectedUsers.filter(
-      user => user[socket.id] === socket.id
-    );
-    socket.broadcast.emit("UPDATE_USERS", connectedUsers);
+    // connectedUsers = connectedUsers.filter(
+    //   user => user[socket.id] === socket.id
+    // );
+    // socket.broadcast.emit("UPDATE_USERS", connectedUsers);
   });
 });
